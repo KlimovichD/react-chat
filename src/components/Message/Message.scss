@@ -1,0 +1,141 @@
+@import '../../styles/variables.scss';
+
+.button {
+  &--large {
+    height: 56px !important;
+  }
+}
+.message {
+  $self: &;
+  display: flex;
+  max-width: 100%;
+  margin-bottom: 15px;
+  &__content {
+    display: flex;
+    position: relative;
+    max-width: 440px;
+  }
+  &--is-typing {
+    #{$self}__content {
+      #{$self}__bubble {
+        padding: 15px 18px;
+        background-color: $message-typing-blue;
+        box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.04);
+      }
+    }
+  }
+  &--image {
+    #{$self}__attachments {
+      &-item {
+        img {
+          width: 150px;
+          height: 150px;
+        }
+      }
+    }
+  }
+  &__attachments {
+    display: flex;
+    margin-bottom: 10px;
+    &-item {
+      margin-right: 5px;
+      cursor: pointer;
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  &__icon-readed {
+    position: absolute;
+    bottom: 30px;
+    left: -25px;
+    &--no {
+      left: -20px;
+    }
+  }
+  &__avatar {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      border-radius: 50px;
+      width: 33px;
+      height: 33px;
+      margin-right: 13px;
+      margin-bottom: 17px;
+    }
+  }
+  &__bubble {
+    background: $blue;
+    box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.196733);
+    border-radius: 0 12px 12px 12px;
+    padding: 15px;
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    color: #ffffff;
+    line-height: 20px;
+  }
+  &__date {
+    font-size: 12px;
+    opacity: 0.5;
+  }
+  &--isme {
+    display: flex;
+    flex-direction: row-reverse;
+    #{$self}__content {
+      margin-bottom: 15px;
+      flex-direction: row-reverse;
+      text-align: right;
+    }
+    #{$self}__avatar {
+      img {
+        margin-right: 0;
+        margin-left: 13px;
+      }
+    }
+    #{$self}__bubble {
+      background: #ffffff;
+      border: 1px solid #ececec;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.0220444);
+      border-radius: 12px 0px 12px 12px;
+    }
+    #{$self}__text {
+      color: $black;
+    }
+  }
+  &__typing {
+    span {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background: $message-typing-circle;
+      display: inline-block;
+      margin-right: 7px;
+      animation: typingAnimation 0.5s ease-in-out infinite;
+
+      &:nth-of-type(1) {
+        animation-delay: 0.166666s;
+      }
+      &:nth-of-type(2) {
+        animation-delay: 0.333333s;
+      }
+      &:nth-of-type(3) {
+        animation-delay: 0.5s;
+      }
+    }
+  }
+}
+
+@keyframes typingAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
