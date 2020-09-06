@@ -129,13 +129,59 @@
       }
     }
   }
-}
+  &--is-audio {
+    #{$self}__bubble {
+      width: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+    #{$self}__audio {
+      &-info {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+      }
+      &-btn {
+        button {
+          border: 0;
+          width: 28px;
+          height: 28px;
+          border-radius: 30px;
+          background: $audio-button;
+          cursor: pointer;
 
-@keyframes typingAnimation {
-  0% {
-    opacity: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          img {
+            height: 11px;
+          }
+        }
+      }
+      &-duration {
+        color: #ffffff;
+        font-weight: 500;
+        opacity: 0.5;
+        font-size: 12px;
+      }
+      &-progress {
+        background: $audio-progress;
+        transition: width 0.3s ease;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
   }
-  100% {
-    opacity: 1;
+
+  @keyframes typingAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 }
